@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تسجيل الدخول</title>
+    <link rel="stylesheet" href="HD2.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="img/logo.png" alt="شعار الجامعة" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="HD2.html">العناصر</a></li>
+        <li><a href="#">الطلب</a></li>
+        <li><a href="index.HTML">واجهة الترحيب</a></li>
+      </ul>
+    </nav>
+    <div class="products-container">
+      <div class="product-card">
+        <img src="img/cafe.jpeg" class="product-img" alt="coffee" />
+        <h3 class="product-title">قهوة عربية سادة</h3>
+        <p class="product-price">5 د.ل</p>
+        <button class="add-btn">إضافة لطلب</button>
+      </div>
+
+      <div class="product-card">
+        <img src="img/cafetur.jpeg" class="product-img" alt="coffee" />
+        <h3 class="product-title">قهوة تركية</h3>
+        <p class="product-price">7 د.ل</p>
+        <button class="add-btn">إضافة لطلب</button>
+      </div>
+    </div>
+
+    <!-- زر عائم -->
+    <button class="floating-order-btn" onclick="openOrderPopup()">
+      تأكيد الطلب
+    </button>
+
+    <!-- نافذة الطلب -->
+    <div class="order-popup" id="orderPopup">
+      <div class="popup-content">
+        <h2>تأكيد الطلب</h2>
+
+        <label>اسم الزبون:</label>
+        <input type="text" id="customerName" placeholder="اكتب اسمك هنا" />
+
+        <h3>الطلبات:</h3>
+        <ul id="orderList"></ul>
+
+        <p><strong>المجموع: </strong><span id="totalPrice">0</span> د.ل</p>
+
+        <button class="confirm-btn" onclick="confirmOrder()">
+          إرسال الطلب
+        </button>
+        <button class="cancel-btn" onclick="closeOrderPopup()">إلغاء</button>
+      </div>
+    </div>
+    <script>
+      let cart = [];
+
+      function addToCart(name, price) {
+          cart.push({ name, price });
+          alert("تمت الإضافة للسلة ✅");
+      }
+
+      function openOrderPopup() {
+          document.getElementById("orderPopup").style.display = "flex";
+
+          let list = document.getElementById("orderList");
+          list.innerHTML = "";
+
+          let total = 0;
+          cart.forEach(item => {
+              let li = document.createElement("li");
+              li.textContent = '${item.name} - ${item.price} د.ل';
+              list.appendChild(li);
+              total += item.price;
+          });
+
+          document.getElementById("totalPrice").textContent = total;
+      }
+
+      function closeOrderPopup() {
+          document.getElementById("orderPopup").style.display = "none";
+      }
+
+      function confirmOrder() {
+          let name = document.getElementById("customerName").value;
+
+          if (name.trim() === "" || cart.length === 0) {
+              alert("يرجى إدخال الاسم وإضافة عناصر للسلة");
+              return;
+          }
+
+          // هنا تقدر تبعت الطلب لسيرفر أو صفحة أخرى
+          alert("تم إرسال الطلب بنجاح ✅");
+
+          cart = []; // تفريغ السلة
+          closeOrderPopup();
+          window.location.href = "menu.html"; // رجوع لواجهة العناصر
+      }
+    </script>
+  </body>
+</html>

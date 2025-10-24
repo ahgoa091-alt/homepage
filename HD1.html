@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول</title>
+    <link rel="stylesheet" href="HD1.css">
+</head>
+<body>
+    <br>
+    <div class="card shadow">
+        <form class="form" onsubmit="return login()"> 
+          <span id="login-lable">تسجيل دخول موظف</span> 
+          <input class="input" type="text" id="username" placeholder="اسم المستخدم"> 
+          <input class="input" type="password" id="password" placeholder="كلمة السر" minlength="8" maxlength="15">
+          <button id="btn">دخول</button> 
+        </form>
+        <script>
+            function login() {
+                let user = document.getElementById("username").value ;
+                let pass = document.getElementById("password").value ;
+                if (user === "admin" && pass === "11111111") {
+                    window.location.href = "HD.HTML" ;
+                    return false ;
+                } else{
+                    alert("اسم المستخم أو كلمة السر غير صحيحة") ;
+                    return false ;
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>
