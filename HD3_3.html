@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تسجيل الدخول</title>
+    <link rel="stylesheet" href="HD3.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="img/It.png" alt="شعار الكلية" />
+      </div>
+      <pre><h2>المدير  </h2></pre>
+    </nav>
+    <br>
+    <div class="container">
+      <!-- القائمة (Tabs Links) -->
+      <ul class="tab-list">
+        <li class="tab-item active" onclick="openTab(event, 'content1')">
+          المبيعات
+        </li>
+        <li class="tab-item" onclick="openTab(event, 'content2')">
+          المستخدمين
+        </li>
+        <li class="tab-item" onclick="openTab(event, 'content3')">
+          العناصر
+        </li>
+      </ul>
+
+      <!-- المحتوى (Tab Content/Windows) -->
+      <div id="content1" class="tab-content active">
+        <h2>نافذة المبيعات</h2>
+        <p>
+          عرض المبيعات
+        </p>
+      </div>
+
+      <div id="content2" class="tab-content">
+        <h2>نافذة المستخدمين</h2>
+        <p>
+          عرض المستخدمين
+        </p>
+      </div>
+
+      <div id="content3" class="tab-content">
+        <h2>نافذة العناصر</h2>
+        <p>عرض العناصر</p>
+      </div>
+    </div>
+    <br>
+    <footer>
+      <br />
+      &copy;2025
+      <br />
+      <p>Ali Abo Zead</p>
+      <br />
+    </footer>
+    <script src="HD3.js"></script>
+  </body>
+</html>

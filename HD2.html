@@ -9,98 +9,108 @@
   <body>
     <nav class="navbar">
       <div class="logo">
-        <img src="img/logo.png" alt="شعار الجامعة" />
+        <img src="img/It.png" alt="شعار الكلية" />
       </div>
+      <h2>الزبون</h2>
       <ul class="nav-links">
         <li><a href="HD2.html">العناصر</a></li>
-        <li><a href="#">الطلب</a></li>
         <li><a href="index.html">واجهة الترحيب</a></li>
       </ul>
     </nav>
+    <br />
+    <br />
+    <div align="center">
+      <button class="ok">تأكيد الطلب</button>
+      <button class="del">حذف المحدد</button>
+    </div>
+
+    <div id="popupDel" class="popup hidden">
+      <div class="popup-content">
+        <h3>هل أنت متأكد من حذف الطلبات؟</h3>
+        <div class="popup-buttons">
+          <button id="confirmDel">تأكيد</button>
+          <button id="cancelDel">إلغاء</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="popupOrder" class="popup hidden">
+      <div class="popup-content large">
+        <h3>تأكيد الطلب</h3>
+        <label>اسم الزبون:</label>
+        <input type="text" id="customerName" placeholder="اكتب اسمك هنا..." />
+        <table id="orderTable">
+          <thead>
+            <tr>
+              <th>العنصر</th>
+              <th>الكمية</th>
+              <th>السعر</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <p class="total">الإجمالي: <span id="totalPrice">0</span> د.ل</p>
+        <div class="popup-buttons">
+          <button id="confirmOrder">تأكيد</button>
+          <button id="cancelOrder">إلغاء</button>
+        </div>
+      </div>
+    </div>
+
     <div class="products-container">
       <div class="product-card">
         <img src="img/cafe.jpeg" class="product-img" alt="coffee" />
         <h3 class="product-title">قهوة عربية سادة</h3>
         <p class="product-price">5 د.ل</p>
-        <button class="add-btn">إضافة لطلب</button>
+        <input type="number" id="num" name="num" min="0" max="50" value="0" />
       </div>
 
       <div class="product-card">
         <img src="img/cafetur.jpeg" class="product-img" alt="coffee" />
         <h3 class="product-title">قهوة تركية</h3>
         <p class="product-price">7 د.ل</p>
-        <button class="add-btn">إضافة لطلب</button>
+        <input type="number" id="num" name="num" min="0" max="50" value="0" />
+      </div>
+
+      <div class="product-card">
+        <img src="img/cafetur.jpeg" class="product-img" alt="coffee" />
+        <h3 class="product-title">قهوة تركية</h3>
+        <p class="product-price">7 د.ل</p>
+        <input type="number" id="num" name="num" min="0" max="50" value="0" />
       </div>
     </div>
+    <footer>
+      <br />
+      &copy;2025
+      <br />
+      <p>Ali Abo Zead</p>
+      <br />
+    </footer>
+    <!-- <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const delBtn = document.querySelector(".del");
 
-    <!-- زر عائم -->
-    <button class="floating-order-btn" onclick="openOrderPopup()">
-      تأكيد الطلب
-    </button>
+        delBtn.addEventListener("click", function () {
+          const inputs = document.querySelectorAll(
+            ".product-card input[type='number']"
+          );
+          let deleted = false;
 
-    <!-- نافذة الطلب -->
-    <div class="order-popup" id="orderPopup">
-      <div class="popup-content">
-        <h2>تأكيد الطلب</h2>
-
-        <label>اسم الزبون:</label>
-        <input type="text" id="customerName" placeholder="اكتب اسمك هنا" />
-
-        <h3>الطلبات:</h3>
-        <ul id="orderList"></ul>
-
-        <p><strong>المجموع: </strong><span id="totalPrice">0</span> د.ل</p>
-
-        <button class="confirm-btn" onclick="confirmOrder()">
-          إرسال الطلب
-        </button>
-        <button class="cancel-btn" onclick="closeOrderPopup()">إلغاء</button>
-      </div>
-    </div>
-    <script>
-      let cart = [];
-
-      function addToCart(name, price) {
-          cart.push({ name, price });
-          alert("تمت الإضافة للسلة ✅");
-      }
-
-      function openOrderPopup() {
-          document.getElementById("orderPopup").style.display = "flex";
-
-          let list = document.getElementById("orderList");
-          list.innerHTML = "";
-
-          let total = 0;
-          cart.forEach(item => {
-              let li = document.createElement("li");
-              li.textContent = '${item.name} - ${item.price} د.ل';
-              list.appendChild(li);
-              total += item.price;
+          inputs.forEach((input) => {
+            if (parseInt(input.value, 10) > 0) {
+              input.value = 0;
+              deleted = true;
+            }
           });
 
-          document.getElementById("totalPrice").textContent = total;
-      }
-
-      function closeOrderPopup() {
-          document.getElementById("orderPopup").style.display = "none";
-      }
-
-      function confirmOrder() {
-          let name = document.getElementById("customerName").value;
-
-          if (name.trim() === "" || cart.length === 0) {
-              alert("يرجى إدخال الاسم وإضافة عناصر للسلة");
-              return;
+          if (deleted) {
+            alert("🗑 تم حذف جميع الاختيارات!");
+          } else {
+            alert("❌ لا توجد عناصر محددة للحذف.");
           }
-
-          // هنا تقدر تبعت الطلب لسيرفر أو صفحة أخرى
-          alert("تم إرسال الطلب بنجاح ✅");
-
-          cart = []; // تفريغ السلة
-          closeOrderPopup();
-          window.location.href = "menu.html"; // رجوع لواجهة العناصر
-      }
-    </script>
+        });
+      });
+    </script> -->
+    <script src="HD2.JS"></script>
   </body>
 </html>

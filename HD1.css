@@ -1,22 +1,21 @@
-body{
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-img{
-            width: 150px;
-        }
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+img {
+  width: 150px;
+}
 .form {
   height: 18em;
   width: 16em;
   padding: 4%;
   border-radius: 16px;
   background: #e8e8e8;
-  box-shadow: 12px 12px 18px #bababa,
-              -12px -12px 18px #ffffff;
+  box-shadow: 12px 12px 18px #bababa, -12px -12px 18px #ffffff;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -29,8 +28,7 @@ img{
   font-size: 34px;
   letter-spacing: 3px;
   font-weight: 600;
-  text-shadow: -2px -2px 3px #ffffff ,
-              2px 2px 3px #bababa;
+  text-shadow: -2px -2px 3px #ffffff, 2px 2px 3px #bababa;
   position: relative;
   top: -14px;
 }
@@ -45,9 +43,9 @@ img{
   border-radius: 8px;
   background: #f3f3f3;
   box-shadow: inset -2px -2px 4px #ffffff,
-              inset 2px 2px 4px rgba(0, 0, 0, 0.356);
+    inset 2px 2px 4px rgba(0, 0, 0, 0.356);
   text-decoration: none;
-  background: linear-gradient(to right,white, #80808010, white);
+  background: linear-gradient(to right, white, #80808010, white);
   background-size: 200% 200%;
   animation: input 4s infinite;
 }
@@ -63,12 +61,10 @@ img{
   color: white;
   font-weight: 700;
   height: 18%;
-  background: linear-gradient(144deg,#af40ff,
-              #5b42f3 50%,#00ddeb);
+  background: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
   border-radius: 8px;
   border: none;
-  box-shadow: inset 1px 3px 3px #ffffffbd,
-               inset -4px -4px 3px #00000046;
+  box-shadow: inset 1px 3px 3px #ffffffbd, inset -4px -4px 3px #00000046;
   background-size: 150% 150%;
   animation: input 5s infinite;
   transition: all 900ms ease-in;
@@ -77,8 +73,7 @@ img{
 #btn:hover {
   position: relative;
   bottom: 3px;
-  background: linear-gradient(144deg,#9706ff,
-              #2f0fff 50%,#18f0ff);
+  background: linear-gradient(144deg, #9706ff, #2f0fff 50%, #18f0ff);
 }
 
 @keyframes input {

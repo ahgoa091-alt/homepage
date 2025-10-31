@@ -1,0 +1,100 @@
+body {
+  background-color: rgb(201, 113, 87);
+  font-family: sans-serif;
+    direction: rtl;
+    margin: 20px;
+}
+.navbar {
+  width: 96%;
+  background: rgb(255, 255, 255);
+  color: #070000;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+img {
+  width: 90px;
+}
+footer {
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  display: inline-block;
+}
+
+.nav-links a {
+  color: #0e0000;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  background: #4a70ff;
+}
+
+
+body {
+    
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+/* تصميم القائمة */
+.tab-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+.tab-item {
+    float: right; /* لمحاذاة العناصر جنبًا إلى جنب */
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+}
+
+.tab-item:hover {
+    background-color: #ddd;
+}
+
+/* التصميم عند اختيار الخيار */
+.tab-item.active {
+    background-color: #ccc;
+}
+
+/* تصميم المحتوى (النوافذ) */
+.tab-content {
+    display: none; /* إخفاء المحتوى افتراضيًا */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+/* إظهار المحتوى النشط */
+.tab-content.active {
+    display: block;
+}
