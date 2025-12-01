@@ -33,9 +33,18 @@
     <div id="popupOrder" class="popup hidden">
       <div class="popup-content large">
         <h3>تأكيد الطلب</h3>
-        <label>اسم الزبون:</label>
-        <input type="text" id="customerName" placeholder="اكتب اسمك هنا..." />
         <table id="orderTable">
+          <label>طريقة الدفع:</label>
+          <div class="payment-options">
+            <label
+              ><input type="radio" name="payment" value="بطاقة" /> بطاقة</label
+            >
+            <label
+              ><input type="radio" name="payment" value="نقدي" checked />
+              نقدي</label
+            >
+          </div>
+
           <thead>
             <tr>
               <th>العنصر</th>
@@ -57,21 +66,21 @@
       <div class="product-card">
         <img src="img/cafe.jpeg" class="product-img" alt="coffee" />
         <h3 class="product-title">قهوة عربية سادة</h3>
-        <p class="product-price">5 د.ل</p>
+        <p class="product-price">4 د.ل</p>
         <input type="number" id="num" name="num" min="0" max="50" value="0" />
       </div>
 
       <div class="product-card">
         <img src="img/cafetur.jpeg" class="product-img" alt="coffee" />
         <h3 class="product-title">قهوة تركية</h3>
-        <p class="product-price">7 د.ل</p>
+        <p class="product-price">2 د.ل</p>
         <input type="number" id="num" name="num" min="0" max="50" value="0" />
       </div>
 
       <div class="product-card">
-        <img src="img/cafetur.jpeg" class="product-img" alt="coffee" />
-        <h3 class="product-title">قهوة تركية</h3>
-        <p class="product-price">7 د.ل</p>
+        <img src="img/cap.jpg" class="product-img" alt="coffee" />
+        <h3 class="product-title">كابتشينو ايطالي</h3>
+        <p class="product-price">3 د.ل</p>
         <input type="number" id="num" name="num" min="0" max="50" value="0" />
       </div>
     </div>
@@ -82,31 +91,6 @@
       <p>تحت إشراف : عصام الأسطى</p>
       <br />
     </footer>
-    <!-- <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const delBtn = document.querySelector(".del");
-
-        delBtn.addEventListener("click", function () {
-          const inputs = document.querySelectorAll(
-            ".product-card input[type='number']"
-          );
-          let deleted = false;
-
-          inputs.forEach((input) => {
-            if (parseInt(input.value, 10) > 0) {
-              input.value = 0;
-              deleted = true;
-            }
-          });
-
-          if (deleted) {
-            alert("🗑 تم حذف جميع الاختيارات!");
-          } else {
-            alert("❌ لا توجد عناصر محددة للحذف.");
-          }
-        });
-      });
-    </script> -->
     <script src="HD2.JS"></script>
   </body>
 </html>

@@ -10,11 +10,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const confirmOrder = document.getElementById("confirmOrder");
   const cancelOrder = document.getElementById("cancelOrder");
 
-  const customerName = document.getElementById("customerName");
   const orderTable = document.querySelector("#orderTable tbody");
   const totalPriceEl = document.getElementById("totalPrice");
 
-  const inputs = document.querySelectorAll(".product-card input[type='number']");
+  const inputs = document.querySelectorAll(
+    ".product-card input[type='number']"
+  );
 
   // 🗑 فتح نافذة الحذف
   delBtn.addEventListener("click", () => popupDel.classList.remove("hidden"));
@@ -22,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   confirmDel.addEventListener("click", () => {
     let deleted = false;
-    inputs.forEach(input => {
+    inputs.forEach((input) => {
       if (parseInt(input.value) > 0) {
         input.value = 0;
         deleted = true;
@@ -37,14 +38,18 @@ document.addEventListener("DOMContentLoaded", () => {
     orderTable.innerHTML = "";
     let total = 0;
 
-    document.querySelectorAll(".product-card").forEach(card => {
+    document.querySelectorAll(".product-card").forEach((card) => {
       const title = card.querySelector(".product-title").textContent;
-      const price = parseFloat(card.querySelector(".product-price").textContent);
+      const price = parseFloat(
+        card.querySelector(".product-price").textContent
+      );
       const qty = parseInt(card.querySelector("input").value);
 
       if (qty > 0) {
         const row = document.createElement("tr");
-        row.innerHTML = `<td>${title}</td><td>${qty}</td><td>${qty * price}</td>`;
+        row.innerHTML = `<td>${title}</td><td>${qty}</td><td>${
+          qty * price
+        }</td>`;
         orderTable.appendChild(row);
         total += qty * price;
       }
@@ -60,17 +65,13 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // إلغاء التأكيد
-  cancelOrder.addEventListener("click", () => popupOrder.classList.add("hidden"));
+  cancelOrder.addEventListener("click", () =>
+    popupOrder.classList.add("hidden")
+  );
 
   // تأكيد الطلب
   confirmOrder.addEventListener("click", () => {
-    const name = customerName.value.trim();
-    if (!name) {
-      alert("⚠️ الرجاء إدخال اسم الزبون.");
-      return;
-    }
-
-    alert(`✅ تم تأكيد الطلب!\nالاسم: ${name}\nالإجمالي: ${totalPriceEl.textContent} د.ل`);
+    alert(`✅ تم تأكيد الطلب!\nالإجمالي: ${totalPriceEl.textContent} د.ل`);
     popupOrder.classList.add("hidden");
   });
 });
