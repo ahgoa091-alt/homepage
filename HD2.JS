@@ -73,5 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
   confirmOrder.addEventListener("click", () => {
     alert(`✅ تم تأكيد الطلب!\nالإجمالي: ${totalPriceEl.textContent} د.ل`);
     popupOrder.classList.add("hidden");
+    
   });
 });
